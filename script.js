@@ -38,7 +38,7 @@ const projects = [
    // price: "$500",
   
     images: [
-      { src: "images/qshop.jpg", desc: "Main Page", descAr: "الصفحة الأساسية" },
+      { src: "images/delivery/qshop.jpg", desc: "Main Page", descAr: "الصفحة الأساسية" },
     
     ]
   
@@ -105,7 +105,7 @@ function loadProjects(lang = 'english', filter = 'all') {
         </div>
         <h3>${projectTitle}</h3>
         <p>${projectDesc}</p>
-        <p class="price">${projectPrice}</p>
+        // <p class="price">${projectPrice}</p>
       `;
 
       card.addEventListener("click", () => {
@@ -135,3 +135,4 @@ document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 
 // التحميل الأولي
 document.addEventListener("DOMContentLoaded", () => loadProjects());
+
