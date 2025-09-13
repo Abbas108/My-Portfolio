@@ -1,0 +1,254 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f9;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: white;
+  padding: 40px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #ddd;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.card p {
+  margin: 0 10px 15px;
+  color: #666;
+}
+
+/* زر واتساب ثابت */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: white;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #4b6cb7;
+}
+
+/* صور صفحة المشروع */
+.project-gallery img {
+  width: 300px;
+  height: auto;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.image-container {
+  display: inline-block;
+  margin: 15px;
+  text-align: center;
+}
+
+.image-container p {
+  margin-top: 5px;
+  font-weight: bold;
+  color: #555;
+}
+.filter-buttons {
+  margin-top: 15px;
+}
+
+.filter-buttons button {
+  background: #4b6cb7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filter-buttons button:hover {
+  background: #182848;
+}
+/* نافذة Lightbox */
+.lightbox {
+  display: none;          
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  text-align: center;
+  padding-top: 60px;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.lightbox p {
+  color: white;
+  font-size: 1.2em;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lightbox .prev,
+.lightbox .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  color: #4b6cb7;
+}
+
+.lightbox .prev {
+  left: 20px;
+}
+
+.lightbox .next {
+  right: 20px;
+}
+#langBtn {
+  float: right;       /* يظهر على اليمين */
+  margin: 10px 20px;
+  padding: 8px 16px;
+  background-color: #4b6cb7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+#langBtn:hover {
+  background-color: #182848;
+}
+.card .price {
+  font-weight: bold;
+  color: #4b6cb7;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+.summary {
+  font-size: 1.2em;
+  color: #333;
+  margin: 15px 20px;
+  text-align: center;
+}
+.logo img {
+   float: left;
+  height: 60px; /* حجم الشعار */
+  width: auto;
+}
+#mainTitle2{
+   margin-top: 10px;
+  font-size: 2em;
+  color: #ddd;
+ 
+}

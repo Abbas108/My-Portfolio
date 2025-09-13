@@ -1,0 +1,20 @@
+[
+  {
+     "id": "project1",
+    "title": "E-Commerce Website",
+    "description": "Online shop with cart & checkout.",
+    "image": "images/sale.PNG"
+  },
+  {
+    "id": "project2",
+    "title": "Mobile App",
+    "description": "Android app using Kotlin & Firebase.",
+    "image": "images/qshop.jpg"
+  },
+  {
+    "id": "project3",
+    "title": "Portfolio Website",
+    "description": "Personal website with HTML, CSS, JS.",
+    "image": "images/home_restaurent.png"
+  }
+]
