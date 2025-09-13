@@ -7,7 +7,7 @@ const projects = [
     type: "web",
     title: "Restaurant website",
     arabicTitle: "موقع مطعم",
-    price: "$250",
+    price: "",
     summary: "This project is an online shop with cart, checkout, and payment integration.",
     summaryAr: "هذا المشروع هو متجر إلكتروني مع سلة شراء وواجهة دفع متكاملة.",
     images: [
@@ -22,7 +22,7 @@ const projects = [
     type: "app",
     title: "POS system",
     arabicTitle: "نقطة بيع لمتجر",
-    price: "$300",
+    price: "",
    
     images: [
       { src: "images/POS/main.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
@@ -35,7 +35,7 @@ const projects = [
     type: "app",
     title: "Dlivery Application",
     arabicTitle: "تطبيق توصيل",
-    price: "$500",
+    price: "",
   
     images: [
       { src: "images/delivery/qshop.jpg", desc: "Main Page", descAr: "الصفحة الأساسية" },
@@ -48,7 +48,7 @@ const projects = [
     type: "app",
     title: "Dental System",
     arabicTitle: "نظام عيادات",
-     price: "$1000",
+     price: "",
     
     images: [
       { src: "images/dental/home.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
@@ -136,6 +136,7 @@ document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 
 // التحميل الأولي
 document.addEventListener("DOMContentLoaded", () => loadProjects());
+
 
 
 
