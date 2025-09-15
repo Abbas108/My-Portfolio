@@ -87,7 +87,7 @@ function loadProject() {
   updateProjectLanguage(project);
 
   const imagesDiv = document.getElementById("images");
-  imagesDiv.innerHTML = ""; // تنظيف قبل التحميل
+ // imagesDiv.innerHTML = ""; // تنظيف قبل التحميل
 
   project.images.forEach((imgObj, index) => {
     const container = document.createElement("div");
@@ -164,5 +164,6 @@ function toggleLanguage() {
 //=======================
 document.addEventListener("DOMContentLoaded", () => {
   loadProject();
-  document.getElementById("langBtn").addEventListener("click", toggleLanguage);
+ // document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 });
+
