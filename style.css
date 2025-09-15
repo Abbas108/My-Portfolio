@@ -150,7 +150,7 @@ footer {
   background: #182848;
 }
 /* نافذة Lightbox */
-/* نافذة Lightbox */
+هذا كود :/* نافذة Lightbox */
 .lightbox {
   display: none;          
   position: fixed;
@@ -159,17 +159,10 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background-color: rgba(0,0,0,0.9);
-
-  /* تعديل لتمركز الصورة */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  padding: 20px;
-  box-sizing: border-box;
-  overflow: hidden; /* منع التمرير */
+  text-align: center;
+  padding-top: 60px;
 }
 
 .lightbox-img {
@@ -177,13 +170,11 @@ footer {
   max-height: 80%;
   border-radius: 8px;
   margin-bottom: 15px;
-  object-fit: contain; /* يحافظ على نسبة الصورة */
 }
 
 .lightbox p {
   color: white;
   font-size: 1.2em;
-  text-align: center;
 }
 
 .lightbox .close {
@@ -223,7 +214,6 @@ footer {
 .lightbox .next {
   right: 20px;
 }
-
 #langBtn {
   float: right;       /* يظهر على اليمين */
   margin: 10px 20px;
@@ -264,3 +254,4 @@ footer {
  
 
 }
+
