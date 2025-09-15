@@ -63,6 +63,7 @@ const projects = [
 ];
 
 let isArabic = false;
+let currentFilter = "all";
 
 function toggleLanguage() {
   isArabic = !isArabic;
@@ -70,72 +71,50 @@ function toggleLanguage() {
 }
 
 function updateLanguage() {
-  // تغيير عنوان الصفحة
   document.getElementById("mainTitle").textContent = isArabic ? "أعمالي البرمجية" : "My Programming Works";
   document.getElementById("mainDesc").textContent = isArabic ? "محفظة أعمال مشاريع الويب والتطبيقات" : "Portfolio of web and app projects";
-
-  // تغيير أزرار الفلترة
   document.getElementById("btnAll").textContent = isArabic ? "الكل" : "All";
   document.getElementById("btnWeb").textContent = isArabic ? "ويب" : "Web";
-  document.getElementById("btnApp").textContent = isArabic ? "C# / SQL" : "C# / SQL";
-
-  // إعادة تحميل المشاريع مع الوصف المناسب
-  loadProjects(isArabic ? 'arabic' : 'english');
+  document.getElementById("btnApp").textContent = "C# / SQL";
+  loadProjects();
 }
 
-// تعديل loadProjects لدعم وصف عربي
-function loadProjects(lang = 'english', filter = 'all') {
+function loadProjects() {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
   projects
-    .filter(project => filter === 'all' || project.type === filter)
+    .filter(project => currentFilter === 'all' || project.type === currentFilter)
     .forEach(project => {
       const card = document.createElement("div");
       card.classList.add("card");
 
-      const projectTitle = lang === 'arabic' && project.arabicTitle ? project.arabicTitle : project.title;
-      const projectDesc = lang === 'arabic' ? (project.images[0].descAr || project.images[0].desc) : project.images[0].desc;
-      const projectPrice = project.price; // السعر
-
+      const projectTitle = isArabic && project.arabicTitle ? project.arabicTitle : project.title;
+      const projectDesc = isArabic ? (project.images[0].descAr || project.images[0].desc) : project.images[0].desc;
+      const projectPrice = project.price;
 
       card.innerHTML = `
-        <div class="card-img">
-          <img src="${project.images[0].src}" alt="${projectTitle}">
-        </div>
+        <div class="card-img"><img src="${project.images[0].src}" alt="${projectTitle}"></div>
         <h3>${projectTitle}</h3>
         <p>${projectDesc}</p>
         <p class="price">${projectPrice}</p>
-     
       `;
 
-      card.addEventListener("click", () => {
-        window.location.href = `project.html?id=${project.id}`;
-      });
-
+      card.addEventListener("click", () => window.location.href = `project.html?id=${project.id}`);
       gallery.appendChild(card);
     });
 }
-document.getElementById("btnAll").addEventListener("click", () => {
-  currentFilter = "all";
-  loadProjects(isArabic ? 'arabic' : 'english', currentFilter);
-});
 
-document.getElementById("btnWeb").addEventListener("click", () => {
-  currentFilter = "web";
-  loadProjects(isArabic ? 'arabic' : 'english', currentFilter);
-});
+// أزرار الفلاتر
+document.getElementById("btnAll").addEventListener("click", () => { currentFilter = "all"; loadProjects(); });
+document.getElementById("btnWeb").addEventListener("click", () => { currentFilter = "web"; loadProjects(); });
+document.getElementById("btnApp").addEventListener("click", () => { currentFilter = "app"; loadProjects(); });
 
-document.getElementById("btnApp").addEventListener("click", () => {
-  currentFilter = "app";
-  loadProjects(isArabic ? 'arabic' : 'english', currentFilter);
-});
-
-// ربط زر اللغة
+// زر اللغة
 document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 
 // التحميل الأولي
-document.addEventListener("DOMContentLoaded", () => loadProjects());
+document.addEventListener("DOMContentLoaded", loadProjects);
 
 
 
