@@ -55,6 +55,19 @@ const projects = [
       
     ]
   
+  },
+  {
+     id: "project5",
+    type: "app",
+    title: "Printing System",
+    arabicTitle: "نظام مطبعة",
+    // price: "$200",
+    
+    images: [
+      { src: "images/dashboard.PNG", desc: "Main Page", descAr: "الصفحة الأساسية" },
+      
+    ]
+  
   }
 
   
@@ -135,6 +148,7 @@ document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 
 // التحميل الأولي
 document.addEventListener("DOMContentLoaded", () => loadProjects());
+
 
 
 
