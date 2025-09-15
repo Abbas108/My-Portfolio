@@ -62,7 +62,7 @@ const projects = [
 
 ];
 
-let isArabic = false;
+let isArabic = true;
 
 function toggleLanguage() {
   isArabic = !isArabic;
@@ -135,5 +135,6 @@ document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 
 // التحميل الأولي
 document.addEventListener("DOMContentLoaded", () => loadProjects());
+
 
 
