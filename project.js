@@ -74,14 +74,14 @@ const projects = [
     summary: "Digital system to organize Profit,Supplies,Orders,all information",
     summaryAr:"نظام الكتروني يتضمن تقارير الارباح و الطلبات و كل المعلومات",
     images: [
-      { src: "images/PrintingCompany/allorderinfo.PNG", desc: "Orders Info", descAr: "تفاصيل الطلبات" },
-      { src: "images/PrintingCompany/code.PNG", desc: "code", descAr: "نبذة" },
-      { src: "images/PrintingCompany/code2.PNG", desc: "code", descAr: "نبذة" },
-      { src: "images/PrintingCompany/customer.PNG", desc: "Customer", descAr: "الزبائن" },
-      { src: "images/PrintingCompany/dashboard.PNG", desc: "Dashboard", descAr: "لوحة التحكم" },
-      { src: "images/PrintingCompany/order.PNG", desc: "Order", descAr: "طلب جديد" },
-      { src: "images/PrintingCompany/orderinfo.PNG", desc: "order Info", descAr: "معلومات الطلبات" },
-      { src: "images/PrintingCompany/profit.PNG", desc: "Profit", descAr: "الارباح" }
+      { src: "images/Printing/allorderinfo.PNG", desc: "Orders Info", descAr: "تفاصيل الطلبات" },
+      { src: "images/Printing/code.PNG", desc: "code", descAr: "نبذة" },
+      { src: "images/Printing/code2.PNG", desc: "code", descAr: "نبذة" },
+      { src: "images/Printing/customer.PNG", desc: "Customer", descAr: "الزبائن" },
+      { src: "images/Printing/dashboard.PNG", desc: "Dashboard", descAr: "لوحة التحكم" },
+      { src: "images/Printing/order.PNG", desc: "Order", descAr: "طلب جديد" },
+      { src: "images/Printing/orderinfo.PNG", desc: "order Info", descAr: "معلومات الطلبات" },
+      { src: "images/Printing/profit.PNG", desc: "Profit", descAr: "الارباح" }
 
 
 ]
@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProject();
   document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 });
+
 
 
 
