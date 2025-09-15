@@ -11,7 +11,7 @@ const projects = [
     summary: "This project is an online shop with cart, checkout, and payment integration.",
     summaryAr: "هذا المشروع هو متجر إلكتروني مع سلة شراء وواجهة دفع متكاملة.",
     images: [
-      { src: "images/website/home_restaurent.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
+      { src: "images/home_restaurent.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
       
 
     ]
@@ -25,7 +25,7 @@ const projects = [
    // price: "$300",
    
     images: [
-      { src: "images/POS/main.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
+      { src: "images/main.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
       
     ]
   
@@ -38,7 +38,7 @@ const projects = [
    // price: "$500",
   
     images: [
-      { src: "images/delivery/qshop.jpg", desc: "Main Page", descAr: "الصفحة الأساسية" },
+      { src: "images/qshop.jpg", desc: "Main Page", descAr: "الصفحة الأساسية" },
     
     ]
   
@@ -51,7 +51,7 @@ const projects = [
     // price: "$1000",
     
     images: [
-      { src: "images/dental/home.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
+      { src: "images/home.png", desc: "Main Page", descAr: "الصفحة الأساسية" },
       
     ]
   
@@ -135,4 +135,5 @@ document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 
 // التحميل الأولي
 document.addEventListener("DOMContentLoaded", () => loadProjects());
+
 
