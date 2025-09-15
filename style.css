@@ -150,7 +150,6 @@ footer {
   background: #182848;
 }
 /* نافذة Lightbox */
-هذا كود :/* نافذة Lightbox */
 .lightbox {
   display: none;          
   position: fixed;
@@ -252,6 +251,4 @@ footer {
   font-size: 2em;
   color: #ddd;
  
-
 }
-
