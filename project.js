@@ -72,7 +72,7 @@ const projects = [
 
 let currentIndex = 0;
 let currentProjectImages = [];
-let isArabic = true; // زر اللغة
+let isArabic = false; // زر اللغة
 
 function loadProject() {
   const params = new URLSearchParams(window.location.search);
@@ -166,4 +166,5 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProject();
   document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 });
+
 
