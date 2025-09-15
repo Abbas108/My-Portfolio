@@ -74,10 +74,7 @@ let currentIndex = 0;
 let currentProjectImages = [];
 let isArabic = false;
 
-//=======================
 // تحميل المشروع وعرض الصور
-//=======================
-
 function loadProject() {
   const params = new URLSearchParams(window.location.search);
   const projectId = params.get("id");
@@ -91,7 +88,7 @@ function loadProject() {
   updateProjectLanguage(project);
 
   const imagesDiv = document.getElementById("images");
-  imagesDiv.innerHTML = ""; // تنظيف قبل التحميل
+  imagesDiv.innerHTML = "";
 
   project.images.forEach((imgObj, index) => {
     const container = document.createElement("div");
@@ -105,7 +102,7 @@ function loadProject() {
     descEl.textContent = isArabic ? imgObj.descAr : imgObj.desc;
 
     imageEl.addEventListener("click", (e) => {
-      e.stopPropagation(); // منع الغلق الفوري للـ Lightbox
+      e.stopPropagation();
       currentProjectImages = project.images;
       currentIndex = index;
       showLightbox(currentIndex);
@@ -119,19 +116,13 @@ function loadProject() {
   setupLightbox();
 }
 
-//=======================
 // تحديث اللغة للمشروع
-//=======================
-
 function updateProjectLanguage(project) {
   document.getElementById("title").textContent = isArabic && project.titleAr ? project.titleAr : project.title;
-  document.getElementById("projectSummary").textContent = isArabic ? (project.summaryAr || project.summary) : project.summary;
+  document.getElementById("projectSummary").textContent = isArabic ? project.summaryAr : project.summary;
 }
 
-//=======================
 // Lightbox
-//=======================
-
 function showLightbox(index) {
   const lightbox = document.getElementById("lightbox");
   const imgEl = document.querySelector(".lightbox-img");
@@ -154,26 +145,13 @@ function nextImage() {
 
 function setupLightbox() {
   const lightbox = document.getElementById("lightbox");
-
-  // إغلاق عند الضغط على ×
-  lightbox.querySelector(".close").onclick = () => {
-    lightbox.style.display = "none";
-  };
-
-  // إغلاق عند الضغط على الخلفية فقط
-  lightbox.onclick = (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
-  };
-
-  // الأسهم
+  lightbox.querySelector(".close").onclick = () => lightbox.style.display = "none";
+  lightbox.onclick = (e) => { if (e.target === lightbox) lightbox.style.display = "none"; };
   lightbox.querySelector(".prev").onclick = prevImage;
   lightbox.querySelector(".next").onclick = nextImage;
 }
 
-//=======================
 // زر اللغة
-//=======================
-
 function toggleLanguage() {
   isArabic = !isArabic;
   loadProject();
