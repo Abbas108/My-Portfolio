@@ -87,7 +87,7 @@ function loadProject() {
   updateProjectLanguage(project);
 
   const imagesDiv = document.getElementById("images");
- // imagesDiv.innerHTML = ""; // تنظيف قبل التحميل
+  imagesDiv.innerHTML = ""; // تنظيف قبل التحميل
 
   project.images.forEach((imgObj, index) => {
     const container = document.createElement("div");
@@ -116,12 +116,13 @@ function loadProject() {
     document.getElementById("lightbox").style.display = "none";
   });
 
-  // إغلاق Lightbox عند الضغط على الخلفية
-  document.getElementById("lightbox").addEventListener("click", (e) => {
-    if (e.target === document.getElementById("lightbox")) {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  });
+  // إغلاق Lightbox عند الضغط على الخلفية فقط (وليس على الصورة أو الوصف)
+document.getElementById("lightbox").addEventListener("click", (e) => {
+  if (e.target.id === "lightbox") {
+    document.getElementById("lightbox").style.display = "none";
+  }
+});
+
 
   // الأسهم
   document.querySelector(".lightbox .prev").addEventListener("click", prevImage);
@@ -166,4 +167,5 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProject();
  // document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 });
+
 
