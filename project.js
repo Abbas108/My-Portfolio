@@ -72,13 +72,13 @@ const projects = [
 
 let currentIndex = 0;
 let currentProjectImages = [];
-let isArabic = false;
+let isArabic = false; // زر اللغة
 
 function loadProject() {
   const params = new URLSearchParams(window.location.search);
   const projectId = params.get("id");
-  const project = projects.find(p => p.id === projectId);
 
+  const project = projects.find(p => p.id === projectId);
   if (!project) {
     document.body.innerHTML = "<h2>Project not found</h2>";
     return;
@@ -87,7 +87,7 @@ function loadProject() {
   updateProjectLanguage(project);
 
   const imagesDiv = document.getElementById("images");
-  imagesDiv.innerHTML = "";
+  imagesDiv.innerHTML = ""; // تنظيف قبل التحميل
 
   project.images.forEach((imgObj, index) => {
     const container = document.createElement("div");
@@ -100,8 +100,7 @@ function loadProject() {
     const descEl = document.createElement("p");
     descEl.textContent = isArabic ? imgObj.descAr : imgObj.desc;
 
-    imageEl.addEventListener("click", (e) => {
-      e.stopPropagation();
+    imageEl.addEventListener("click", () => {
       currentProjectImages = project.images;
       currentIndex = index;
       showLightbox(currentIndex);
@@ -112,16 +111,30 @@ function loadProject() {
     imagesDiv.appendChild(container);
   });
 
-  setupLightbox();
+  // إغلاق Lightbox عند الضغط على ×
+  document.querySelector(".lightbox .close").addEventListener("click", () => {
+    document.getElementById("lightbox").style.display = "none";
+  });
+
+  // إغلاق Lightbox عند الضغط على الخلفية
+  document.getElementById("lightbox").addEventListener("click", (e) => {
+    if (e.target === document.getElementById("lightbox")) {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  });
+
+  // الأسهم
+  document.querySelector(".lightbox .prev").addEventListener("click", prevImage);
+  document.querySelector(".lightbox .next").addEventListener("click", nextImage);
 }
 
 function updateProjectLanguage(project) {
   document.getElementById("title").textContent = isArabic && project.titleAr ? project.titleAr : project.title;
-  document.getElementById("projectSummary").textContent = isArabic ? project.summaryAr : project.summary;
-  document.getElementById("mainTitle2").textContent = isArabic ? "⬅ العودة للمحفظة" : "⬅ Back to Portfolio";
+  if (project.summary || project.summaryAr) {
+    document.getElementById("projectSummary").textContent = isArabic ? (project.summaryAr || project.summary) : project.summary;
+  }
 }
 
-// Lightbox
 function showLightbox(index) {
   const lightbox = document.getElementById("lightbox");
   const imgEl = document.querySelector(".lightbox-img");
@@ -142,22 +155,14 @@ function nextImage() {
   showLightbox(currentIndex);
 }
 
-function setupLightbox() {
-  const lightbox = document.getElementById("lightbox");
-
-  lightbox.querySelector(".close").onclick = () => { lightbox.style.display = "none"; };
-  lightbox.onclick = (e) => { if (e.target === lightbox) lightbox.style.display = "none"; };
-  lightbox.querySelector(".prev").onclick = prevImage;
-  lightbox.querySelector(".next").onclick = nextImage;
-}
-
+// زر اللغة
 function toggleLanguage() {
   isArabic = !isArabic;
   loadProject();
 }
 
+//=======================
 document.addEventListener("DOMContentLoaded", () => {
   loadProject();
   document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 });
-
