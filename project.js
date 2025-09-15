@@ -74,7 +74,6 @@ let currentIndex = 0;
 let currentProjectImages = [];
 let isArabic = false;
 
-// تحميل المشروع وعرض الصور
 function loadProject() {
   const params = new URLSearchParams(window.location.search);
   const projectId = params.get("id");
@@ -116,10 +115,10 @@ function loadProject() {
   setupLightbox();
 }
 
-// تحديث اللغة للمشروع
 function updateProjectLanguage(project) {
   document.getElementById("title").textContent = isArabic && project.titleAr ? project.titleAr : project.title;
   document.getElementById("projectSummary").textContent = isArabic ? project.summaryAr : project.summary;
+  document.getElementById("mainTitle2").textContent = isArabic ? "⬅ العودة للمحفظة" : "⬅ Back to Portfolio";
 }
 
 // Lightbox
@@ -145,13 +144,13 @@ function nextImage() {
 
 function setupLightbox() {
   const lightbox = document.getElementById("lightbox");
-  lightbox.querySelector(".close").onclick = () => lightbox.style.display = "none";
+
+  lightbox.querySelector(".close").onclick = () => { lightbox.style.display = "none"; };
   lightbox.onclick = (e) => { if (e.target === lightbox) lightbox.style.display = "none"; };
   lightbox.querySelector(".prev").onclick = prevImage;
   lightbox.querySelector(".next").onclick = nextImage;
 }
 
-// زر اللغة
 function toggleLanguage() {
   isArabic = !isArabic;
   loadProject();
@@ -161,3 +160,4 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProject();
   document.getElementById("langBtn").addEventListener("click", toggleLanguage);
 });
+
